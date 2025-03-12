@@ -1,0 +1,18 @@
+.heading {
+  display: grid;
+  text-align: center;
+}
+#html-heading {
+  color: white;
+  background-color: orange;
+}
+
+#css-heading {
+  color: white;
+  background-color: blue;
+}
+
+#js-heading {
+  color: black;
+  background-color: yellow;
+}
