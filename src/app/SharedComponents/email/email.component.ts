@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInput, MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-email-input',
@@ -11,13 +12,14 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [    
       CommonModule,
       ReactiveFormsModule,
-      MatFormFieldModule,  
+      MatInputModule,
+      MatInput,
       MatIconModule]
 })
 export class EmailInputComponent {
   @Input() control!: FormControl<any>;
   @Input() label!: string;
-  @Input() type: string = 'text';
+  @Input() type: string = 'email';
   @Input() placeholder: string = '';
   @Input() errorMessage: string = 'This field is required';
 }

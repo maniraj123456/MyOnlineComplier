@@ -1,33 +1,61 @@
-<!--  (ngSubmit)="onSubmit()" -->
-<form>
-  <app-input-field
-    label="Full Name"
-    type="text"
-    placeholder="Enter your name"
-    (control)="formGroup.controls['name']"
-    errorMessage="Name is required">
-</app-input-field>
-
-<app-email-input
-    label="Email"
-    type="email"
-    placeholder="Enter your email"
-    (control)="formGroup.controls['email']"
-    errorMessage="Enter a valid email">
-</app-email-input>
-
-<app-password-input
-    label="Password"
-    type="password"
-    placeholder="Enter your password"
-    (control)="formGroup.controls['password']"
-    errorMessage="Password is required">
-  </app-password-input>
-
-  <button
-    mat-raised-button
-    color="primary"
-    class="full-width">
-    Submit
-  </button>
-</form>
+<div class="container">
+  <form [formGroup]="formGroup">
+    <div class="row">
+      <h1>Login</h1>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        {{'Full Name'}}
+        <app-input-field
+          label="Full Name"
+          type="text"
+          placeholder="Enter your name"
+          [control]="formGroup.controls['name']"
+          errorMessage="Name is required"
+        >
+        </app-input-field>
+      </div>
+      <div class="col-6">
+        {{'Email'}}
+        <app-email-input
+          label="Email"
+          type="email"
+          placeholder="Enter your email"
+          [control]="formGroup.controls['email']"
+          errorMessage="Enter a valid email"
+        >
+        </app-email-input>
+      </div>
+      <div class="row">
+        {{'Password'}}
+        <app-password-input
+          label="Password"
+          type="password"
+          placeholder="Enter your password"
+          [control]="formGroup.controls['password']"
+          errorMessage="Password is required"
+        >
+        </app-password-input>
+      </div>
+      <div class="row">
+        <app-dropdown
+          label="Gender"
+          [control]="formGroup.controls['gender']"
+          (selectionChange)="onGenderChange($event)"
+          errorMessage="Gender is required" 
+          [options]="genderOptions"
+        >
+        </app-dropdown>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          class="full-width"
+          (click)="onSubmit()"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

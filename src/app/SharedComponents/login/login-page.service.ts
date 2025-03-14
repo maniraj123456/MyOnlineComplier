@@ -12,20 +12,21 @@ import {
 export class LoginPageService {
   constructor(private fb: FormBuilder) {}
 
+  getGenderOptions() {
+    const genders:{ value: any; label: string }[] = [
+      { value: 0, label: 'Male' },
+      { value: 1, label: 'Female' },
+      { value: 2, label: 'Other' }
+    ]
+    return genders;
+  }
+
   createForm(): FormGroup {
     return  this.fb.group({
-      name: new FormControl('given name', [
-        Validators.required,
-        Validators.minLength(5),
-      ]) as FormControl,
-      email: new FormControl('sample@gmail.com', [
-        Validators.required,
-        Validators.email,
-      ]) as FormControl,
-      password: new FormControl('sample', [
-        Validators.required,
-        Validators.minLength(6),
-      ]) as FormControl,
+      name: new FormControl(),
+      email: new FormControl(),
+      password: new FormControl(),
+      gender: new FormControl(),
     });
   }
 }

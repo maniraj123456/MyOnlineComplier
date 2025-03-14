@@ -1,5 +1,5 @@
 <mat-form-field appearance="outline" class="full-width">
-  <mat-label>Email</mat-label>
+  <mat-label>{{ 'e-mail' }}</mat-label>
   <input matInput type="email" [formControl]="control" required>
   <mat-error *ngIf="control?.invalid && control?.touched">
     Enter a valid email

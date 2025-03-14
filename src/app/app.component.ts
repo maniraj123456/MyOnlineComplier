@@ -6,10 +6,10 @@ import { LoginComponent } from "./SharedComponents/login/login.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeadingComponent, EditorComponent, LoginComponent],
+  imports: [RouterOutlet, LoginComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'MyOnlineComplier';
+  title = 'MyOnlineCompiler';
 }
