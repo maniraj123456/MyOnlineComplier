@@ -1,0 +1,33 @@
+<!--  (ngSubmit)="onSubmit()" -->
+<form>
+  <app-input-field
+    label="Full Name"
+    type="text"
+    placeholder="Enter your name"
+    (control)="formGroup.controls['name']"
+    errorMessage="Name is required">
+</app-input-field>
+
+<app-email-input
+    label="Email"
+    type="email"
+    placeholder="Enter your email"
+    (control)="formGroup.controls['email']"
+    errorMessage="Enter a valid email">
+</app-email-input>
+
+<app-password-input
+    label="Password"
+    type="password"
+    placeholder="Enter your password"
+    (control)="formGroup.controls['password']"
+    errorMessage="Password is required">
+  </app-password-input>
+
+  <button
+    mat-raised-button
+    color="primary"
+    class="full-width">
+    Submit
+  </button>
+</form>
