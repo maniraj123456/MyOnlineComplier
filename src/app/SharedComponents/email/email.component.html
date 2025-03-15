@@ -1,6 +1,6 @@
 <mat-form-field appearance="outline" class="full-width">
-  <mat-label>{{ 'e-mail' }}</mat-label>
-  <input matInput type="email" [formControl]="control" required>
+  <mat-label>{{ label }}</mat-label>
+  <input matInput type="email" [formControl]="control" [placeholder]="placeholder" required>
   <mat-error *ngIf="control?.invalid && control?.touched">
     Enter a valid email
   </mat-error>

@@ -1,0 +1,21 @@
+.container {
+  text-align: center;
+}
+
+.row {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+button.row.mdc-button.mdc-button--raised.mat-mdc-raised-button.mat-primary.mat-mdc-button-base {
+  width: 40%;
+}
+
+button.full-width.mdc-button.mdc-button--raised.mat-mdc-raised-button.mat-secondary.mat-mdc-button-base {
+  width: 40%;
+}
+
+mat-form-field.mat-mdc-form-field.full-width.mat-mdc-form-field-type-mat-input.mat-mdc-form-field-has-icon-suffix.mat-form-field-appearance-outline.mat-primary.ng-pristine.ng-invalid.mat-form-field-animations-enabled.mat-form-field-invalid.mat-form-field-hide-placeholder.ng-touched{
+    width: 28.67% !important;
+}
+

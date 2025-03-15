@@ -17,10 +17,27 @@ import { MatInput, MatInputModule } from '@angular/material/input';
       MatIconModule]
 })
 export class EmailInputComponent {
+  
   @Input() control!: FormControl<any>;
+  
   @Input() label!: string;
+  
   @Input() type: string = 'email';
+  
   @Input() placeholder: string = '';
+  
   @Input() errorMessage: string = 'This field is required';
+
+  @Input() required: boolean = false;
+
+  @Input() disabled: boolean = false;
+  
+  @Input() readonly: boolean = false;
+
+  @Input() prefixIcon: string = 'email';
+
+  @Input() suffixIcon: string = '';
+
+  @Input() autofocus: boolean = false;
 }
 

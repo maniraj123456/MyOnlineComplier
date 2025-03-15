@@ -18,10 +18,15 @@ import { MatInput } from '@angular/material/input';
   ]
 })
 export class InputFieldComponent {
+  
   @Input() control!: FormControl<any>;
+  
   @Input() label!: string;
+  
   @Input() type: string = 'text';
+  
   @Input() placeholder: string = '';
+  
   @Input() errorMessage: string = 'This field is required';
 }
 
