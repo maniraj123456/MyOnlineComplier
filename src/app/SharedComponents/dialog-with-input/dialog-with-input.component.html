@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+<mat-dialog-content>
+  <p>{{ data.message }}</p>
+</mat-dialog-content>
+<mat-dialog-content>
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>{{ data.label }}</mat-label>
+    <input
+      matInput
+      [type]="data.type"
+      [formControl]="data.control"
+      [placeholder]="data.placeholder"
+    />
+    <mat-error *ngIf="data.control?.invalid && data.control?.touched">
+      {{ data.errorMessage }}
+    </mat-error>
+  </mat-form-field>
+  <mat-dialog-actions align="end">
+    <button mat-button (click)="onCancel()">
+      {{ data.cancelText || "Cancel" }}
+    </button>
+    <button mat-button color="primary" (click)="onConfirm()">
+      {{ data.confirmText || "OK" }}
+    </button>
+  </mat-dialog-actions>
+</mat-dialog-content>
