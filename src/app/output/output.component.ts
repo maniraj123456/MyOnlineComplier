@@ -1,30 +1,41 @@
-import { Component, Input } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Component, Input, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-output',
   templateUrl: './output.component.html',
   styleUrls: ['./output.component.css']
 })
-export class OutputComponent {
+export class OutputComponent implements AfterViewInit {
   @Input() html: string = '';
   @Input() css: string = '';
   @Input() js: string = '';
-  sanitizedOutput: SafeHtml = '';
+  @ViewChild('outputFrame', { static: false }) outputFrame!: ElementRef;
 
-  constructor(private sanitizer: DomSanitizer) {}
+  ngAfterViewInit() {
+    this.generateOutput();
+  }
 
   ngOnChanges() {
     this.generateOutput();
   }
 
   generateOutput() {
-    const combinedHtml = `
-      ${this.html}
-      <style>${this.css}</style>
-      <script>${this.js}<\/script>
-    `;
-    this.sanitizedOutput = this.sanitizer.bypassSecurityTrustHtml(combinedHtml);
+    if (this.outputFrame) {
+      const doc = this.outputFrame.nativeElement.contentDocument || this.outputFrame.nativeElement.contentWindow.document;
+      doc.open();
+      doc.write(`
+        <html>
+        <head>
+          <style>${this.css}</style>
+        </head>
+        <body>
+          ${this.html}
+          <script>${this.js}<\/script>
+        </body>
+        </html>
+      `);
+      doc.close();
+    }
   }
-}
 
+}

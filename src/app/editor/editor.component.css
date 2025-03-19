@@ -26,10 +26,18 @@ app-heading {
 /* Left and right sections */
 .left, .right {
   flex: 1;
-  background-color: #1e1e1e;
   margin: 5px;
   border-radius: 4px;
   overflow: hidden;
+}
+
+.left
+{
+  background-color: #1e1e1e;
+}
+
+.right {
+  background-color: white;
 }
 
 /* Tab styling */

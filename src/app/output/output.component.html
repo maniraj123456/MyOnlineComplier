@@ -1,5 +1,7 @@
 <div class="row sub-heading">
   <label for="output" id="output-label">OUTPUT</label>
 </div>
-<div class="row" name="output" id="output" [innerHTML]="sanitizedOutput"></div>
+<div class="row output-wrapper">
+  <iframe #outputFrame></iframe>
+</div>
 
