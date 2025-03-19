@@ -1,35 +1,47 @@
-<div class="main row p-2 m-2">
-  <div class="left col-sm-6">
-    <div class="html-element row mt-2">
-      <label for="html-element">HTML</label>
-      <textarea
-        id="html-element"
-        [(ngModel)]="htmlCode"
-        (input)="generateOutput()"
-        placeholder="HTML"
-      ></textarea>
-    </div>
-    <div class="css-element row mt-2">
-      <label for="css-element">CSS</label>
-      <textarea
-        id="css-element"
-        [(ngModel)]="cssCode"
-        (input)="generateOutput()"
-        placeholder="CSS"
-      ></textarea>
-    </div>
-    <div class="js-element row mt-2">
-      <label for="js-element">JavaScript</label>
-      <textarea
-        id="js-element"
-        [(ngModel)]="jsCode"
-        (input)="generateOutput()"
-        placeholder="JavaScript"
-      ></textarea>
-    </div>
+<div class="container">
+  <!-- Header -->
+  <div class="row">
+    <app-heading></app-heading>
   </div>
-  <div class="right col-sm-6 p-2">
-    <app-output [html]="htmlCode" [css]="cssCode" [js]="jsCode"></app-output>
+  <!-- Main Content -->
+  <div class="main">
+    <!-- Left Section - Code Editor -->
+    <div class="left">
+      <mat-tab-group (selectedTabChange)="generateOutput()">
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <span class="html-label">HTML</span>
+          </ng-template>
+          <div class="html-element">
+            <textarea id="html-element" [(ngModel)]="htmlCode" (input)="generateOutput()" placeholder="HTML"></textarea>
+          </div>
+        </mat-tab>
+        
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <span class="css-label">CSS</span>
+          </ng-template>
+          <div class="css-element">
+            <textarea id="css-element" [(ngModel)]="cssCode" (input)="generateOutput()" placeholder="CSS"></textarea>
+          </div>
+        </mat-tab>
+        
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <span class="js-label">JS</span>
+          </ng-template>
+          <div class="js-element">
+            <textarea id="js-element" [(ngModel)]="jsCode" (input)="generateOutput()" placeholder="JavaScript"></textarea>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+    
+    <!-- Right Section - Output -->
+    <div class="right">
+      <div class="output-container">
+        <app-output [html]="htmlCode" [css]="cssCode" [js]="jsCode"></app-output>
+      </div>
+    </div>
   </div>
 </div>
-

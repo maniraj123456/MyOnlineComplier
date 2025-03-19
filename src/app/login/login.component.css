@@ -1,21 +1,77 @@
 .container {
   text-align: center;
+  background: linear-gradient(135deg, #00b3ff, #5744ff);
+  max-width: 450px;
+  margin: 50px auto;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(255, 123, 0, 0.3);
+}
+
+h1 {
+  color: white;
+  font-size: 28px;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .row {
-  margin-top: 2%;
-  margin-bottom: 2%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
 }
 
-button.row.mdc-button.mdc-button--raised.mat-mdc-raised-button.mat-primary.mat-mdc-button-base {
-  width: 40%;
+/* Make input fields wider */
+:host ::ng-deep .mat-mdc-form-field {
+  width: 90% !important;
+  max-width: 350px;
 }
 
-button.full-width.mdc-button.mdc-button--raised.mat-mdc-raised-button.mat-secondary.mat-mdc-button-base {
-  width: 40%;
+/* Style the input fields */
+:host ::ng-deep .mat-mdc-text-field-wrapper {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
 }
 
-mat-form-field.mat-mdc-form-field.full-width.mat-mdc-form-field-type-mat-input.mat-mdc-form-field-has-icon-suffix.mat-form-field-appearance-outline.mat-primary.ng-pristine.ng-invalid.mat-form-field-animations-enabled.mat-form-field-invalid.mat-form-field-hide-placeholder.ng-touched{
-    width: 28.67% !important;
+/* Style for buttons */
+button.login-button {
+  width: 90%;
+  max-width: 350px;
+  margin-top: 10px;
+  padding: 12px;
+  background-color: #00b3ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+button.signin-button {
+  width: 90%;
+  max-width: 350px;
+  margin-top: 10px;
+  padding: 12px;
+  background-color: white;
+  color: #00b3ff;
+  border: 2px solid #00b3ff;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+button.login-button:hover {
+  background-color: #5744ff;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+button.signin-button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Remove the overrides you had before that were too specific */
