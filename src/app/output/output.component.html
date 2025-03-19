@@ -1,7 +1,16 @@
-<div class="row sub-heading">
+<!-- <div class="row sub-heading">
   <label for="output" id="output-label">OUTPUT</label>
-</div>
+</div> -->
 <div class="row output-wrapper">
   <iframe #outputFrame></iframe>
 </div>
 
+<!-- Console Log Display -->
+<div class="console-output">
+  <div class="row">
+    <h3>Console Logs</h3>
+  </div>
+  <div *ngFor="let log of logs" class="log-entry">
+    <h1> {{ log }} </h1>
+  </div>
+</div>

@@ -20,13 +20,13 @@ app-heading {
   display: flex;
   flex-direction: row;
   height: calc(100vh - 100px);
-  background-color: #1e1e1e;
+  background-color: #5744ff;
 }
 
 /* Left and right sections */
 .left, .right {
   flex: 1;
-  margin: 5px;
+  margin: 5%;
   border-radius: 4px;
   overflow: hidden;
 }

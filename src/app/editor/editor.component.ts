@@ -39,4 +39,10 @@ export class EditorComponent {
   generateOutput() {
     // Trigger output rendering in child component
   }
+
+  resetEditor() {
+    this.htmlCode = '';
+    this.cssCode = '';
+    this.jsCode = '';
+  }
 }
