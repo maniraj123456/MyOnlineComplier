@@ -9,6 +9,7 @@ import { PasswordInputComponent } from '../SharedComponents/components/password/
 import { MatButtonModule } from '@angular/material/button';
 import { LoginService } from '../Services/login.service';
 import { Router } from '@angular/router';
+import { ApiService } from '../Services/api.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ import { Router } from '@angular/router';
     PasswordInputComponent,
     EmailInputComponent,
     MatButtonModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
@@ -31,7 +32,8 @@ export class LoginComponent {
     private formService: LoginService,
     private fb: FormBuilder,
     private cdRef: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private apiService: ApiService
   ) {
     this.formService = new LoginService(this.fb);
 
@@ -46,8 +48,12 @@ export class LoginComponent {
   onLogin()
   {
     if(this.formGroup.valid) {
-      console.log('Form submitted successfully');
-      this.router.navigate(['/signup']);
+      this.apiService.getUserByEmail(this.formGroup.value.email).subscribe((data) => {
+        console.log(data);
+        if(data.password === this.formGroup.value.password) {
+          this.router.navigate(['/editor']);
+        }
+      });
     }
   }
 }
