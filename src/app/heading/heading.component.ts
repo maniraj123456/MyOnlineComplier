@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { DialogComponent } from '../SharedComponents/dialog/dialog.component';
-import { DialogWithInputComponent } from '../SharedComponents/dialog-with-input/dialog-with-input.component';
+import { DialogComponent } from '../SharedComponents/components/dialog/dialog.component';
+import { DialogWithInputComponent } from '../SharedComponents/components/dialog-with-input/dialog-with-input.component';
 import { FormControl } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatBottomSheet, MatBottomSheetModule } from '@angular/material/bottom-sheet';

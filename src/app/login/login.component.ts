@@ -4,8 +4,8 @@ import {
   FormBuilder,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { EmailInputComponent } from '../SharedComponents/email/email.component';
-import { PasswordInputComponent } from '../SharedComponents/password/password.component';
+import { EmailInputComponent } from '../SharedComponents/components/email/email.component';
+import { PasswordInputComponent } from '../SharedComponents/components/password/password.component';
 import { MatButtonModule } from '@angular/material/button';
 import { LoginService } from '../Services/login.service';
 import { Router } from '@angular/router';

@@ -7,7 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { DialogComponent } from '../SharedComponents/dialog/dialog.component';
+import { DialogComponent } from '../SharedComponents/components/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({

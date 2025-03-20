@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { InputFieldComponent } from '../SharedComponents/input-field/input-field.component';
-import { PasswordInputComponent } from '../SharedComponents/password/password.component';
-import { EmailInputComponent } from '../SharedComponents/email/email.component';
-import { DropdownFieldComponent } from '../SharedComponents/dropdown/dropdown.component';
+import { InputFieldComponent } from '../SharedComponents/components/input-field/input-field.component';
+import { PasswordInputComponent } from '../SharedComponents/components/password/password.component';
+import { EmailInputComponent } from '../SharedComponents/components/email/email.component';
+import { DropdownFieldComponent } from '../SharedComponents/components/dropdown/dropdown.component';
 import { MatButtonModule } from '@angular/material/button';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { SigninPageService } from '../Services/signin-page.service';
