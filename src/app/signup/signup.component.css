@@ -1,11 +1,11 @@
 .container {
   text-align: center;
-  background: linear-gradient(135deg, #0099ff, #0066ff);
+  background: linear-gradient(135deg, #00b3ff, #5744ff);
   max-width: 450px;
   margin: 50px auto;
   padding: 30px 20px;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 102, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(255, 123, 0, 0.3);
 }
 
 h1 {

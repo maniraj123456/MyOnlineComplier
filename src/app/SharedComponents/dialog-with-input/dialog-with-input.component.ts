@@ -22,22 +22,13 @@ import { MatInputModule } from '@angular/material/input';
   ],
 })
 export class DialogWithInputComponent {
-  
-/*   @Input() control!: FormControl<any>;
 
-  @Input() label!: string;
-
-  @Input() type: string = 'text';
-
-  @Input() placeholder: string = '';
-
-  @Input() errorMessage: string = 'This field is required';
- */
   @Output() confirm = new EventEmitter<void>();
 
   @Output() cancel = new EventEmitter<void>();
 
   constructor(
+    
     public dialogRef: MatDialogRef<DialogWithInputComponent>,
 
     @Inject(MAT_DIALOG_DATA)

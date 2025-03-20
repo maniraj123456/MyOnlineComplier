@@ -20,7 +20,8 @@ app-heading {
   display: flex;
   flex-direction: row;
   height: calc(100vh - 100px);
-  background-color: #5744ff;
+  background: linear-gradient(135deg, #00b3ff, #5744ff);
+  box-shadow: 0 8px 20px rgba(255, 123, 0, 0.3);
 }
 
 /* Left and right sections */
