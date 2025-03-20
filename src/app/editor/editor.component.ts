@@ -26,20 +26,14 @@ import { MatDialog } from '@angular/material/dialog';
   ],
 })
 export class EditorComponent {
+  
   htmlCode: string = '';
   cssCode: string = '';
   jsCode: string = '';
 
-  items: { option: string; values: string[] }[] = [
-    { option: 'option1', values: ['value1', 'value2', 'value3'] },
-    { option: 'option2', values: ['value4', 'value5', 'value6'] },
-  ];
-
+  isEdit : boolean = false;
+  
   constructor(private dialog: MatDialog) {}
-
-  generateOutput() {
-    // Trigger output rendering in child component
-  }
 
   resetEditor() {
     this.htmlCode = '';

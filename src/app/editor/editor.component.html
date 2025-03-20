@@ -7,13 +7,13 @@
   <div class="main">
     <!-- Left Section - Code Editor -->
     <div class="left">
-      <mat-tab-group (selectedTabChange)="generateOutput()">
+      <mat-tab-group >
         <mat-tab>
           <ng-template mat-tab-label>
             <span class="html-label">HTML</span>
           </ng-template>
           <div class="html-element">
-            <textarea id="html-element" [(ngModel)]="htmlCode" (input)="generateOutput()" placeholder="HTML"></textarea>
+            <textarea id="html-element" [(ngModel)]="htmlCode" placeholder="HTML"></textarea>
           </div>
         </mat-tab>
         
@@ -22,7 +22,7 @@
             <span class="css-label">CSS</span>
           </ng-template>
           <div class="css-element">
-            <textarea id="css-element" [(ngModel)]="cssCode" (input)="generateOutput()" placeholder="CSS"></textarea>
+            <textarea id="css-element" [(ngModel)]="cssCode"  placeholder="CSS"></textarea>
           </div>
         </mat-tab>
         
@@ -31,10 +31,13 @@
             <span class="js-label">JS</span>
           </ng-template>
           <div class="js-element">
-            <textarea id="js-element" [(ngModel)]="jsCode" (input)="generateOutput()" placeholder="JavaScript"></textarea>
+            <textarea id="js-element" [(ngModel)]="jsCode"  placeholder="JavaScript"></textarea>
           </div>
         </mat-tab>
       </mat-tab-group>
+      <!-- <div class="row">
+        <button mat-raised-button color="primary" (click)="resetEditor()">Reset</button>
+      </div> -->
     </div>
     
     <!-- Right Section - Output -->

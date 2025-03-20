@@ -5,8 +5,12 @@ import { DialogComponent } from '../SharedComponents/components/dialog/dialog.co
 import { DialogWithInputComponent } from '../SharedComponents/components/dialog-with-input/dialog-with-input.component';
 import { FormControl } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatBottomSheet, MatBottomSheetModule } from '@angular/material/bottom-sheet';
-import { BottomSheetComponent } from '../bottom-sheet/bottom-sheet.component';
+import {
+  MatBottomSheet,
+  MatBottomSheetModule,
+} from '@angular/material/bottom-sheet';
+import { ProjectsListComponent } from '../projects-list/projects-list.component';
+import { ProjectsService } from '../Services/projects.service';
 
 @Component({
   selector: 'app-heading',
@@ -15,12 +19,22 @@ import { BottomSheetComponent } from '../bottom-sheet/bottom-sheet.component';
   styleUrl: './heading.component.css',
 })
 export class HeadingComponent {
+  
+  @Input() projectName: string = ''; 
+  
+  @Output() resetEvent = new EventEmitter<void>(); 
 
-  @Input() projects: Array<{ projectID: number ,projectName: string , html : string , css : string ,js : string}> = []; 
+  projects: Array<{
+    projectID: number;
+    projectName: string;
+    html: string;
+    css: string;
+    js: string;
+  }> = [];
 
-  @Output() resetEvent = new EventEmitter<void>(); // Create an event emitter
-
-  constructor(private dialog: MatDialog,private bottomSheet:MatBottomSheet) {}
+  constructor(private dialog: MatDialog, private bottomSheet: MatBottomSheet) {
+    this.projects = new ProjectsService().getProjects();
+  }
 
   triggerReset() {
     this.dialog
@@ -58,6 +72,20 @@ export class HeadingComponent {
   }
 
   triggerBottomsheet() {
-    this.bottomSheet.open(BottomSheetComponent);
+    this.bottomSheet.open(ProjectsListComponent, {
+      data: { projects: this.projects },
+    }).afterDismissed().subscribe((data) => {
+      if (data.project) {
+        if(data.status === 'edit')
+        {
+          console.log('edit');
+        }
+        if(data.status === 'delete')
+        {
+          console.log('delete');
+          /* trigger delete api */
+        }
+      }
+    });
   }
 }

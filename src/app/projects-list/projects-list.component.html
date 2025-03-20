@@ -1,0 +1,15 @@
+<mat-nav-list>
+    <mat-nav-list>
+        @for (project of projects; track project) {
+         <mat-list-item>
+             {{ project.projectName }}
+             <button mat-button color="primary" (click)="editInfo(project)" matListItemMeta>
+                <mat-icon>edit</mat-icon>Edit
+             </button>
+             <button mat-button color="secondary" (click)="deleteInfo(project)" matListItemMeta>
+              <mat-icon>delete</mat-icon>Delete
+           </button>
+          </mat-list-item>
+        }
+      </mat-nav-list>
+  </mat-nav-list>
