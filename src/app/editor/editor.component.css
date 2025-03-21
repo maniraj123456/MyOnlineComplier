@@ -32,9 +32,14 @@ app-heading {
   overflow: hidden;
 }
 
+.mat-mdc-tab-labels
+{
+  background-color: #1e1e1e !important;
+}
+
 .left
 {
-  background-color: #1e1e1e;
+  background-color: white;
 }
 
 .right {

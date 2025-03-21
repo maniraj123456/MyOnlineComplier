@@ -9,6 +9,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { DialogComponent } from '../SharedComponents/components/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ApiService } from '../Services/api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-editor',
@@ -28,12 +30,30 @@ import { MatDialog } from '@angular/material/dialog';
 export class EditorComponent {
   
   htmlCode: string = '';
+  
   cssCode: string = '';
+  
   jsCode: string = '';
 
-  isEdit : boolean = false;
-  
-  constructor(private dialog: MatDialog) {}
+  isEdit: boolean = false;
+
+  userName: string = '';
+
+  userId !: number;
+
+  constructor(
+    private dialog: MatDialog,
+    private apiService: ApiService,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit()
+  {
+    this.route.queryParams.subscribe(params => {
+      this.userName = params['userName'],
+      this.userId = params['userId']
+    });
+  }
 
   resetEditor() {
     this.htmlCode = '';

@@ -50,7 +50,7 @@ export class DialogWithInputComponent {
   onConfirm(): void {
     if(this.data.control.value !== ''){
       this.confirm.emit();
-      this.dialogRef.close(true);
+      this.dialogRef.close({value : this.data.control.value , confirm : true});
     }
     else{
       this.data.control.setErrors({required: true});
@@ -59,6 +59,6 @@ export class DialogWithInputComponent {
 
   onCancel(): void {
     this.cancel.emit();
-    this.dialogRef.close(false);
+    this.dialogRef.close({value : null , confirm : false});
   }
 }
