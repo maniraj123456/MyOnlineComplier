@@ -3,7 +3,8 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 10px 20px;
+  padding: 1% 1%;
+  flex-wrap: wrap; 
   background-color: #2d2d2d;
   border-bottom: 1px solid #3a3a3a;
 }
@@ -50,14 +51,19 @@
 
 .actions {
   display: flex;
-  gap: 10px;
+  gap: 5px; 
+  flex-wrap: wrap; 
+  max-width: 100%;
+  overflow: hidden;
 }
+
 
 .action-button {
   background-color: #3a3a3a;
-  color: #f8f8f8;
+  color: #f8f8f8 !important;
   border-radius: 4px;
-  padding: 5px 10px;
+  padding: 3px 8px;
+  font-size: 14px;
 }
 
 .save-button {

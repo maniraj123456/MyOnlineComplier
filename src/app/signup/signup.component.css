@@ -95,3 +95,15 @@ button.signin-button:hover {
 :host ::ng-deep .mat-icon {
   color: rgba(0, 0, 0, 0.6);
 }
+
+app-password-input,
+app-email-input,
+app-dropdown,
+app-input-field {
+  width: 100%;
+}
+
+.row
+{
+  height: 80%;
+}

@@ -9,6 +9,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { DialogComponent } from '../SharedComponents/components/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ApiService } from '../Services/api.service';
+import { ActivatedRoute } from '@angular/router';
+import { Project } from '../SharedComponents/models/project.model';
 
 @Component({
   selector: 'app-editor',
@@ -26,19 +29,43 @@ import { MatDialog } from '@angular/material/dialog';
   ],
 })
 export class EditorComponent {
-  
   htmlCode: string = '';
+
   cssCode: string = '';
+
   jsCode: string = '';
 
-  isEdit : boolean = false;
-  
-  constructor(private dialog: MatDialog) {}
+  isEdit: boolean = false;
 
-  resetEditor() {
-    this.htmlCode = '';
-    this.cssCode = '';
-    this.jsCode = '';
+  userName: string = '';
+
+  userId!: number;
+
+  projectID!: number;
+
+  constructor(
+    private dialog: MatDialog,
+    private apiService: ApiService,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit() {
+    this.route.queryParams.subscribe((params) => {
+      (this.userName = params['userName']), (this.userId = params['userId']);
+    });
+  }
+
+  resetEditor($data : {isEdit:boolean , project : Project | null}) {
+    if (this.isEdit && $data.project as Project) {
+      this.htmlCode = $data.project?.html || '';
+      this.cssCode = $data.project?.css || '';
+      this.jsCode = $data.project?.js || '';
+      this.projectID = $data.project?.projectID ?? 0;
+    } else {
+      this.htmlCode = '';
+      this.cssCode = '';
+      this.jsCode = '';
+    }
   }
 
   openDialog(): void {
@@ -59,5 +86,13 @@ export class EditorComponent {
         console.log('Cancelled!');
       }
     });
+  }
+
+  editEditor($data: { project: Project; status: string }) {
+    this.isEdit = true;
+    this.htmlCode = $data.project.html;
+    this.cssCode = $data.project.css;
+    this.jsCode = $data.project.js;
+    this.projectID = $data.project.projectID;
   }
 }

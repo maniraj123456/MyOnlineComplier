@@ -31,6 +31,7 @@ export class OutputComponent implements AfterViewInit, OnChanges {
       // Reset logs when output regenerates
       this.logs = [];
 
+      // Create the HTML document inside the iframe
       doc.open();
       doc.write(`
         <html>
@@ -40,17 +41,25 @@ export class OutputComponent implements AfterViewInit, OnChanges {
         <body>
           ${this.html}
           <script>
+            // Intercept console.log to push messages to parent
+            const logs = [];
+            console.log = function(message) {
+              logs.push(message);
+              window.parent.postMessage({ type: 'consoleLog', message: message }, '*');
+            };
+
+            // Execute the provided JS
             ${this.js}
-          <\/script>
+          </script>
         </body>
         </html>
       `);
       doc.close();
 
-      // Listen for log messages from the iframe
+      // Listen for the console logs sent from the iframe
       window.addEventListener('message', (event) => {
         if (event.data.type === 'consoleLog') {
-          this.logs.push(event.data.data);
+          this.logs.push(event.data.message);
         }
       });
     }
