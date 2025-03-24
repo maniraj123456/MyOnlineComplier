@@ -4,13 +4,17 @@
 </mat-dialog-content>
 <mat-dialog-content>
   <mat-form-field appearance="outline" class="full-width">
-    <mat-label>{{ data.label }}</mat-label>
+    @if(data.isInput) {
+    <ng-container mat-label>
+      <mat-label>{{ data.label }}</mat-label>
+    </ng-container>
     <input
       matInput
       [type]="data.type"
       [formControl]="data.control"
       [placeholder]="data.placeholder"
     />
+    }
     <mat-error *ngIf="data.control?.invalid && data.control?.touched">
       {{ data.errorMessage }}
     </mat-error>

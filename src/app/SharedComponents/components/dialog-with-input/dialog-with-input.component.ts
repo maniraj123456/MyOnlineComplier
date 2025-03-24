@@ -39,7 +39,7 @@ export class DialogWithInputComponent {
       message: string;
       confirmText?: string;
       cancelText?: string;
-
+      isInput: boolean;
       control: FormControl<any>;
       label?: string;
       type: string | 'text';
@@ -48,12 +48,21 @@ export class DialogWithInputComponent {
   ) {}
 
   onConfirm(): void {
-    if(this.data.control.value !== ''){
-      this.confirm.emit();
-      this.dialogRef.close({value : this.data.control.value , confirm : true});
+    if(this.data.isInput)
+    {
+      if(this.data.control.value !== ''){
+        this.confirm.emit();
+        console.log(this.data.control.value);
+        this.dialogRef.close({value : this.data.control.value , confirm : true});
+      }
+      else{
+        this.data.control.setErrors({required: true});
+      }
     }
-    else{
-      this.data.control.setErrors({required: true});
+    else
+    {
+      this.confirm.emit();
+      this.dialogRef.close({value : null, confirm : true});
     }
   }
 

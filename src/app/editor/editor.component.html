@@ -2,12 +2,15 @@
   <!-- Header -->
   <div class="row">
     <app-heading
+      [isEdit]="isEdit"
       [userName]="userName"
       [userId]="userId"
+      [projectId]="projectID"
       [htmlCode]="htmlCode"
       [cssCode]="cssCode"
       [jsCode]="jsCode"
-      (resetEvent)="resetEditor()"
+      (resetEvent)="resetEditor($event)"
+      (editEvent)="editEditor($event)"
     ></app-heading>
   </div>
   <!-- Main Content -->
