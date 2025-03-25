@@ -55,12 +55,12 @@ export class EditorComponent {
     });
   }
 
-  resetEditor($data : {isEdit:boolean , project : Project | null}) {
+  resetEditor($data : {isEdit:boolean , project : any | null}) {
     if (this.isEdit && $data.project as Project) {
       this.htmlCode = $data.project?.html || '';
       this.cssCode = $data.project?.css || '';
       this.jsCode = $data.project?.js || '';
-      this.projectID = $data.project?.projectID ?? 0;
+      this.projectID = $data.project?.projectId ?? 0;
     } else {
       this.htmlCode = '';
       this.cssCode = '';
@@ -88,11 +88,11 @@ export class EditorComponent {
     });
   }
 
-  editEditor($data: { project: Project; status: string }) {
+  editEditor($data: { project: any; status: string }) {
     this.isEdit = true;
     this.htmlCode = $data.project.html;
     this.cssCode = $data.project.css;
     this.jsCode = $data.project.js;
-    this.projectID = $data.project.projectID;
+    this.projectID = $data.project.projectId;
   }
 }

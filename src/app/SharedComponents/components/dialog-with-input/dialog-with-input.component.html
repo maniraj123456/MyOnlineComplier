@@ -3,22 +3,21 @@
   <p>{{ data.message }}</p>
 </mat-dialog-content>
 <mat-dialog-content>
-  <mat-form-field appearance="outline" class="full-width">
-    @if(data.isInput) {
-    <ng-container mat-label>
-      <mat-label>{{ data.label }}</mat-label>
-    </ng-container>
+  <mat-form-field *ngIf="data.isInput" appearance="outline" class="full-width">
+    <mat-label>{{ data.label }}</mat-label>
     <input
       matInput
       [type]="data.type"
       [formControl]="data.control"
       [placeholder]="data.placeholder"
     />
-    }
     <mat-error *ngIf="data.control?.invalid && data.control?.touched">
       {{ data.errorMessage }}
     </mat-error>
   </mat-form-field>
+  <mat-spinner *ngIf="isLoading">
+    saving
+  </mat-spinner>
   <mat-dialog-actions align="end">
     <button mat-button (click)="onCancel()">
       {{ data.cancelText || "Cancel" }}

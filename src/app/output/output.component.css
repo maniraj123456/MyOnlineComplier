@@ -1,8 +1,9 @@
 /* CSS for Output Component */
 .output-wrapper {
   border: 1px solid black;
+  max-height: 800px;
   min-height: 200px;
-  max-height: max-content;
+  height: 650px;
   background: white;
   padding: 10px;
 }
