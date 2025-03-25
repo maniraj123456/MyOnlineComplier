@@ -12,6 +12,7 @@ import {
 import { ProjectsListComponent } from '../projects-list/projects-list.component';
 import { ApiService } from '../Services/api.service';
 import { Project } from '../SharedComponents/models/project.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-heading',
@@ -20,6 +21,7 @@ import { Project } from '../SharedComponents/models/project.model';
   styleUrl: './heading.component.css',
 })
 export class HeadingComponent {
+
   @Input() isEdit: boolean = false;
 
   @Input() htmlCode: string = '';
@@ -55,7 +57,8 @@ export class HeadingComponent {
   constructor(
     private dialog: MatDialog,
     private bottomSheet: MatBottomSheet,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private router : Router
   ) {}
 
   ngOnInit() {
@@ -221,6 +224,25 @@ export class HeadingComponent {
           }
         }
       });
+  }
+
+  triggerLogout()
+  {
+    this.dialog
+      .open(DialogComponent, {
+        width: '50%',
+        data: {
+          title: 'User Logout',
+          message: 'Are you sure you want to Logout?',
+          confirmText: 'Logout',
+          cancelText: 'Cancel',
+        },
+      })
+      .afterClosed().subscribe(
+        (data) =>{
+          this.router.navigate(['/login']);
+        }
+      );
   }
 
   private getProjects() {

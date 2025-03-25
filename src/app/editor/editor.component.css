@@ -59,8 +59,8 @@ app-heading {
 /* Textarea styling */
 textarea {
   width: 100%;
-  height: 100%;
-  min-height: 300px;
+  height: 670px;
+  min-height: 670px;
   background-color: #1e1e1e;
   color: #f8f8f8;
   resize: none;
@@ -115,13 +115,28 @@ textarea {
 }
 
 .html-label {
-  color: orange;
+  color: #ff7b00;
 }
 
 .css-label {
-  color: blue;
+  color: #0066ff;
 }
 
 .js-label {
-  color: yellow;
+  color: #ffcc00;
+}
+
+.html-tab-heading > .mat-mdc-tab
+{
+  color: #ff7b00 !important;
+}
+
+.css-tab-heading > .mat-mdc-tab
+{
+  color: #0066ff !important;
+}
+
+.js-tab-heading > .mat-mdc-tab
+{
+  color: #ffcc00 !important;
 }

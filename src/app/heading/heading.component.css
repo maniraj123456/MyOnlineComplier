@@ -17,7 +17,7 @@
 .html-text {
   color: #ff7b00;
   background-color: #ff7b00;
-  color: white;
+  color: black;
   padding: 2px 6px;
   border-radius: 3px;
 }
@@ -25,7 +25,7 @@
 .css-text {
   color: #0066ff;
   background-color: #0066ff;
-  color: white;
+  color: black;
   padding: 2px 6px;
   border-radius: 3px;
 }

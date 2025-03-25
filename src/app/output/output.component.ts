@@ -50,19 +50,7 @@ export class OutputComponent implements AfterViewInit, OnChanges {
         </head>
         <body>
           ${this.html}
-          <script>
-            (function() {
-              // Intercept console.log and send messages to parent
-              const originalLog = console.log;
-              console.log = function(...args) {
-                originalLog.apply(console, args);
-                window.parent.postMessage({ type: 'consoleLog', message: args.join(' ') }, '*');
-              };
-            })();
-          </script>
           <script>${this.js}</script>
-        </body>
-        </html>
       `);
       doc.close();
     }
