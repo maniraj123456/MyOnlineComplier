@@ -173,7 +173,6 @@ export class HeadingComponent {
           .afterClosed()
           .subscribe((data) => {
             /* creating a project */
-            console.log(data);
             if (
               data.confirm &&
               (this.htmlCode !== '' ||
@@ -188,9 +187,15 @@ export class HeadingComponent {
                 userId: this.userId,
                 projectName: data.value,
               };
-              console.log(query);
               this.apiService.createProject(query).subscribe((data) => {
-                console.log(data);
+                if(data.projectName)
+                {
+                  this.isEdit = false;
+                  this.resetEvent.emit({
+                        isEdit: this.isEdit,
+                        project: null,
+                  });
+                }
               });
             }
           });
