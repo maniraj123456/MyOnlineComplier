@@ -29,7 +29,7 @@ app-heading {
   flex: 1;
   margin: 5%;
   border-radius: 4px;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 .mat-mdc-tab-labels
